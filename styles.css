@@ -577,31 +577,31 @@ transition: 0.3s ease;
     margin-top: 2rem;
 }
 .footer {
-    position: relative; /* يجعل العنصر .footer مرجعًا لوضع العناصر الأخرى */
-    bottom: 0; /* يضع العنصر في أسفل الصفحة */
-    width: 100%; /* يجعل عرض العنصر يساوي عرض الشاشة بالكامل */
-    padding: 40px 0; /* يضيف مسافة بادئة علوية وسفلية 40 بكسل */
-    background-color: var(--main-color); /* يجعل لون الخلفية هو قيمة متغير --main-color */
+    position: relative; 
+    bottom: 0; 
+    width: 100;
+    padding: 40px 0; 
+    background-color: var(--main-color); 
   }
   
   .footer .social {
-    text-align: center; /* يحاذي النص إلى الوسط */
-    padding-bottom: 25px; /* يضيف مسافة بادئة سفلية 25 بكسل */
-    color: white; /* يجعل لون النص أبيض */
+    text-align: center; 
+    padding-bottom: 25px; 
+    color: white; 
   }
   
   .footer .social a {
-    font-size: 25px; /* يجعل حجم الخط 25 بكسل */
-    color: white; /* يجعل لون النص أبيض */
-    border: 2px solid white; /* يضيف إطارًا أبيض حول الرابط */
-    width: 42px; /* يجعل عرض الرابط 42 بكسل */
-    height: 42px; /* يجعل ارتفاع الرابط 42 بكسل */
-    line-height: 42px; /* يجعل ارتفاع السطر يساوي ارتفاع العنصر */
-    display: inline-block; /* يعرض العنصر كعنصر داخلي */
-    text-align: center; /* يحاذي النص إلى الوسط */
-    border-radius: 50%; /* يجعل زوايا العنصر دائرية */
-    margin: 0 10px; /* يضيف مسافة بادئة يمين ويسار 10 بكسل */
-    transition: 0.3s ease; /* يضيف تأثير انتقال عند التمرير فوق العنصر */
+    font-size: 25px; 
+    color: white; 
+    border: 2px solid white; 
+    width: 42px; 
+    height: 42px; 
+    line-height: 42px; 
+    display: inline-block; 
+    text-align: center;
+    border-radius: 50%; 
+    margin: 0 10px; 
+    transition: 0.3s ease; 
   }
   .footer .social a:hover {
     transform: scale(1.2) translateY(-10px);
