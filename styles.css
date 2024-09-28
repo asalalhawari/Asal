@@ -643,3 +643,7 @@ transition: 0.3s ease;
     font-size: 16px;
     color: white;
   }
+  .progress-line.wordpress span {
+    width: 80%; /* Example percentage for WordPress skill level */
+    background: #21759b; /* WordPress blue color */
+}
