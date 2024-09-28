@@ -453,6 +453,11 @@ transition: 0.3s ease;
     width: 95%;
     background-color: rgb(133, 161, 19);
 }
+.progress-line.wordpress span {
+    width: 80%; /* Example percentage for WordPress skill level */
+    background: #21759b; /* WordPress blue color */
+}
+
 
 .timeline-section {
     min-height: 100vh;
