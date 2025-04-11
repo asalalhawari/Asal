@@ -7,7 +7,797 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "poppins", sans-serif;
+}
+:root{
+    --bg-color:rgb(15,15,15);
+    --second-bg-color:#161616;
+    --text-color:white;
+    --main-color:#e415ff;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 9%;
+    background: rgba(0, 0, 0, 0.7);
+   backdrop-filter:blur(10px);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   z-index: 100;
+   
+}
+.logo{
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.logo:hover{
+    transform: scale(1.1);
+
+}
+.navbar a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover
+.navbar a.active{
+    color: var(--main-color);
+   border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 10rem;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+}
+.home-content h3{
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+span{
+    color: var(--main-color);
+}
+.logo span{
+    color: var(--main-color);
+
+}
+.home-content h3:nth-of-type(2){
+    margin-bottom: 2rem;
+    font-size: 5rem;
+}
+.home-content h1{
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.home-img{
+    border-radius: 50%;
+}
+.home-img img{
+    position: relative;
+    width: 30vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+}
+.home-content p{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.social-icons a{
+display: inline-flex;
+justify-content: center;
+align-items: center;
+width: 4rem;
+height: 4rem;
+background: transparent;
+border: 0.2rem solid var(--main-color);
+font-size: 2rem;
+border-radius: 50%;
+color: var(--main-color);
+margin:  3rem 1.5rem 3rem 0;
+transition: 0.3s ease;
+}
+.social-icons a:hover{
+    color: white;
+    transform: scale(1.3) translateY(-5px);
+    background-color: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--bg-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition:  0.3s ease;
+    cursor: pointer;
+}
+.btn:hover{
+    transform:  scale(1.05);
+    background:  var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 25px var(--);
+}
+.text_animation{
+    font-size: 34px;
+    font-weight: 600;
+    min-height: 280px;
+}
+.text_animation span{
+    position: relative;
+}
+.text_animation span::before{
+    content:'Delovper';
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+.text_animation span::after{
+    content:'Delovper';
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+   animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor{
+    to{
+        border-left: 2px solid var(--main-color);
+    }
+}
+@keyframes words{
+    0%,
+    20%{
+        content:'Delovper';
+    }
+    21%,
+    60%{
+        content:'Delovper';
+    }
+    41%,
+    80%{
+        content:'Css';
+    }
+    
+    81%,
+    100%{
+        content:'Jordan';
+    }
+
+}
+@keyframes typing{
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%{
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85%{
+        width: calc(100% + 8px);
+    }
+}
+.heading{
+    text-align: center;
+    font-size: 8rem;
+}
+.Services {
+    background-color: var(--second-bg-color);
+  }
+  
+  .Services h2 {
+    margin-bottom: 8rem;
+  }
+  
+  .Services-container {
+    display: flex;
+    flex-wrap: wrap; /* Changed to wrap to accommodate more service boxes */
+    justify-content: space-between; /* Distribute space between items */
+    align-items: stretch; /* Align items to stretch to match heights */
+    gap: 3rem; /* Space between items */
+  }
+  
+  .Services-container .Services-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--main-color);
+    padding: 3rem 2rem 4rem;
+    height: 550px;
+    border-radius: 2rem;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.5s ease;
+    flex: 1; /* Allow boxes to grow and fill available space */
+    min-width: 300px; /* Minimum width for each box */
+    margin-bottom: 3rem; /* Add margin bottom for spacing when wrapped */
+  }
+  
+  .Services-container .Services-box:hover {
+    transform: scale(1.02);
+    background-color: white;
+    color: black;
+  }
+  
+  .Services-box i {
+    font-size: 7rem;
+    color: black;
+    margin-bottom: 1rem;
+  }
+  
+  .Services-box h3 {
+    font-size: 2.6rem;
+  }
+  
+  .Services-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+  }
+  
+  .Services-box .btn {
+    background-color: white;
+  }
+  
+  .Services-box .btn:hover {
+    color: var(--main-color);
+  }
+  
+::-webkit-scrollabar{
+    width: 15px;
+}
+
+::-webkit-scrollabar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollabar-track{
+    background-color: var(--bg-color);
+    width: 50px;
+}
+.projects h2{
+    background: var(--bg-color);
+}
+.projects-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+@media (max-width: 1200px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projects-container .projects-box{
+    position: relative;
+    border-radius: 2rem;
+    height: 550px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 2.5rem;
+}
+.projects-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+.projects-box:hover img{
+    transform: scale(1.1);
+
+}
+.projects-box .projects-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+}
+.projects-box .projects-info:hover{
+    background: radial-gradient(rgba(225, 0, 255, 0.8)
+    var(--main-color));
+    transform: scale(1.1);
+}
+.projects-info h4{
+    font-size: 3rem;
+    color: white;
+    font-weight: 800;
+
+}
+.projects-info p{
+    font-size: 1.6rem;
+    margin: 0.3rem 0 1rem;
+    font-weight: 600;
+    color: white;
+
+}
+.projects-info a{
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: white;
+    border: 2px solid var(--bg-color);
+    border-radius: 50%;
+}
+.projects-info a i{
+    font-size: 3rem;
+    color: var(--main-color);
+}
+.skills {
+    background-color: var(--second-bg-color);
+    padding: 2rem 0;
+}
+
+.skills h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.skill-bars {
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--bg-color);
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+}
+
+.skill-bars .bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-bars .bar .info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.7rem;
+}
+
+.skill-bars .bar .progress-line {
+    height: 10px;
+    width: 100%;
+    background: white;
+    position: relative;
+    border-radius: 10px;
+}
+
+.bar .progress-line span {
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+}
+
+.bar .progress-line.react span {
+    width: 80%;
+    background-color: rgb(8, 91, 26);
+}
+
+.bar .progress-line.javascript span {
+    width: 80%;
+    background-color: rgb(23, 23, 194);
+}
+
+.bar .progress-line.mysql span {
+    width: 75%;
+    background-color: lightskyblue;
+}
+
+.bar .progress-line.html span {
+    width: 100%;
+    background-color: orangered;
+}
+
+.bar .progress-line.css span {
+    width: 95%;
+    background-color: blue;
+}
+.bar .progress-line.laravel span {
+    width: 95%;
+    background-color: rgb(133, 161, 19);
+}
+.progress-line.wordpress span {
+    width: 80%; /* Example percentage for WordPress skill level */
+    background: #21759b; /* WordPress blue color */
+}
+
+/* New skill styles */
+.bar .progress-line.php span {
+    width: 90%;
+    background-color: #8993be; /* PHP color */
+}
+
+.bar .progress-line.figma span {
+    width: 85%;
+    background-color: #f24e1e; /* Figma color */
+}
+
+.bar .progress-line.qa span {
+    width: 80%;
+    background-color: #ff6b6b; /* QA color */
+}
+
+.bar .progress-line.github span {
+    width: 85%;
+    background-color: #6e5494; /* GitHub color */
+}
+
+/* Work Experience Section Styles */
+.work-experience {
+  min-height: 100vh;
+  padding: 10rem 9% 10rem;
+  background-color: var(--bg-color);
+}
+
+.work-experience h2 {
+  margin-bottom: 5rem;
+}
+
+.experience-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience-box {
+  background-color: var(--second-bg-color);
+  border-radius: 2rem;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  border-left: 5px solid var(--main-color);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.experience-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.experience-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.experience-logo {
+  flex-shrink: 0;
+}
+
+.experience-logo i {
+  font-size: 5rem;
+  color: var(--main-color);
+}
+
+.experience-details {
+  flex-grow: 1;
+}
+
+.experience-details h3 {
+  font-size: 2.5rem;
+  color: var(--main-color);
+  margin-bottom: 0.5rem;
+}
+
+.experience-details h4 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.experience-date {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.experience-description {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.experience-skills span {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  transition: 0.3s ease;
+}
+
+.experience-skills span:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: var(--main-color);
+}
+
+/* Responsive styles for work experience */
+@media (max-width: 768px) {
+  .experience-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-skills {
+    justify-content: center;
+  }
+}
+
+.timeline-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color);
+  }
+  
+  .timeline-section h2 {
+    margin-bottom: 5rem;
+  }
+  
+  .timeline-items {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .timeline-items::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: calc(50% - 1px);
+  }
+  
+  .timeline-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+}
+
+.timeline-dot {
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    top: 10px;
+}
+
+.timeline-date {
+    font-size: 29px;
+    font-weight: 800;
+    color: white;
+    margin: 6px 15px;
+}
+
+.timeline-content {
+    background-color: var(--main-color);
+    padding: 30px;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.timeline-content p {
+    color: white;
+}
+.contact {
+    background-color: var(--second-bg-color);
+}
+
+.contact h2 {
+    margin-bottom: 3rem;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 2px solid var(--main-color);
+    margin: 1rem 0;
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+}
+.footer {
+    position: relative; 
+    bottom: 0; 
+    width: 100;
+    padding: 40px 0; 
+    background-color: var(--main-color); 
+  }
+  
+  .footer .social {
+    text-align: center; 
+    padding-bottom: 25px; 
+    color: white; 
+  }
+  
+  .footer .social a {
+    font-size: 25px; 
+    color: white; 
+    border: 2px solid white; 
+    width: 42px; 
+    height: 42px; 
+    line-height: 42px; 
+    display: inline-block; 
+    text-align: center;
+    border-radius: 50%; 
+    margin: 0 10px; 
+    transition: 0.3s ease; 
+  }
+  .footer .social a:hover {
+    transform: scale(1.2) translateY(-10px);
+    background-color: white;
+    color: var(--main-color);
+  }
+  
+  .footer ul {
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .footer ul li a {
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+  }
+  .footer ul li a:hover {
+    border-bottom: 3px solid white;
+  }
+  
+  .footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+  }
+  
+  .footer .copyright {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+  }
+</style>
 
 <body>
 
@@ -22,7 +812,8 @@
             <a href="#home" class="active">Home</a>
             <a href="#Services">Services</a>
             <a href="#projects">projects</a>
-            <a href="#skills"> skills</a>
+            <a href="#skills">skills</a>
+            <a href="#work-experience">Experience</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -70,30 +861,31 @@
             <div class="Services-box">
                 <i class='bx bx-palette'></i>
                 <h3>Web Development</h3>
-                <p>Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit.
-                    Sapiente vitae at nisi ea, explicabo
-                    reiciendis!</p>
-
-
+                <p>Specialized in creating responsive and dynamic web applications with modern technologies. I deliver high-quality, user-friendly websites that meet client requirements and industry standards.</p>
                 <a href="#" class="btn">Learn More</a>
             </div>
             <div class="Services-box">
                 <i class='bx bx-code-alt'></i>
                 <h3>Frontend Development</h3>
-                <p>Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit.
-                    Sapiente vitae at nisi ea, explicabo
-                    reiciendis!</p>
+                <p>Creating beautiful, responsive user interfaces using HTML, CSS, JavaScript and React.js. I focus on user experience, performance optimization, and cross-browser compatibility to deliver engaging front-end solutions.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="Services-box">
+                <i class='bx bx-code'></i>
+                <h3>Backend Development</h3>
+                <p>Building robust server-side applications using PHP, Laravel, and MySQL. I develop secure, scalable backend systems with efficient database design, API integration, and performance optimization.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="Services-box">
+                <i class='bx bx-palette'></i>
+                <h3>UI/UX Design with Figma</h3>
+                <p>Creating intuitive and visually appealing user interfaces using Figma. I design wireframes, prototypes, and interactive mockups that enhance user experience while maintaining brand consistency and modern design principles.</p>
                 <a href="#" class="btn">Learn More</a>
             </div>
             <div class="Services-box">
                 <i class='bx bx-code'></i>
                 <h3>Graphic Design</h3>
-                <p>Lorem, ipsum dolor sit amet
-                    consectetur adipisicing elit.
-                    Sapiente vitae at nisi ea, explicabo
-                    reiciendis!</p>
+                <p>Creating visually stunning graphics for web and print media. I design logos, banners, marketing materials, and other visual assets that effectively communicate your brand message.</p>
                 <a href="#" class="btn">Learn More</a>
             </div>
         </div>
@@ -139,6 +931,42 @@
                         and stay organized.</p>
                     <a href="#"><i class="bx 
                         bx-link"></i></a>
+                </div>
+            </div>
+            <!-- New Project: Akho Dunya Website -->
+            <div class="projects-box">
+                <img src="شعار اخو دنيا 1.png" alt="Akho Dunya Website">
+                <div class="projects-info">
+                    <h4>Akho Dunya Website</h4>
+                    <p>A modern, responsive website with an intuitive user interface and seamless navigation. Features include dynamic content management, user authentication, and interactive elements.</p>
+                    <a href="#"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+            <!-- New Project: Accounting System -->
+            <div class="projects-box">
+                <img src="/placeholder.svg?height=550&width=400" alt="Accounting System">
+                <div class="projects-info">
+                    <h4>Accounting System</h4>
+                    <p>A comprehensive accounting solution that handles invoicing, expense tracking, financial reporting, and tax calculations. Built with security and user-friendliness in mind.</p>
+                    <a href="#"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+            <!-- New Project: Rowan Cake -->
+            <div class="projects-box">
+                <img src="/placeholder.svg?height=550&width=400" alt="Rowan Cake">
+                <div class="projects-info">
+                    <h4>Rowan Cake</h4>
+                    <p>An e-commerce platform for a bakery business featuring product catalog, online ordering, custom cake design options, and secure payment processing.</p>
+                    <a href="#"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+            <!-- New Project: Romatek -->
+            <div class="projects-box">
+                <img src="شعار روميتك.svg" alt="Romatek">
+                <div class="projects-info">
+                    <h4>Romatek</h4>
+                    <p>A technology solutions website showcasing services, portfolio, and client testimonials. Features a modern design with interactive elements and responsive layout.</p>
+                    <a href="#"><i class="bx bx-link"></i></a>
                 </div>
             </div>
         </div>
@@ -195,7 +1023,7 @@
                     <span></span>
                 </div>
             </div>
-            <!-- New WordPress Skill Bar -->
+            <!-- WordPress Skill Bar -->
             <div class="bar">
                 <div class="info">
                     <span>WordPress</span>
@@ -204,9 +1032,82 @@
                     <span></span>
                 </div>
             </div>
+            <!-- New PHP Skill Bar -->
+            <div class="bar">
+                <div class="info">
+                    <span>PHP</span>
+                </div>
+                <div class="progress-line php">
+                    <span></span>
+                </div>
+            </div>
+            <!-- New Figma Skill Bar -->
+            <div class="bar">
+                <div class="info">
+                    <span>Figma</span>
+                </div>
+                <div class="progress-line figma">
+                    <span></span>
+                </div>
+            </div>
+            <!-- New QA Skill Bar -->
+            <div class="bar">
+                <div class="info">
+                    <span>Quality Assurance (QA)</span>
+                </div>
+                <div class="progress-line qa">
+                    <span></span>
+                </div>
+            </div>
+            <!-- New GitHub Skill Bar -->
+            <div class="bar">
+                <div class="info">
+                    <span>GitHub</span>
+                </div>
+                <div class="progress-line github">
+                    <span></span>
+                </div>
+            </div>
         </div>
     </section>
     
+    <!-- NEW WORK EXPERIENCE SECTION -->
+    <section class="work-experience" id="work-experience">
+        <h2 class="heading">Work Experience</h2>
+        <div class="experience-container">
+            <div class="experience-box">
+                <div class="experience-content">
+                    <div class="experience-logo">
+                        <i class='bx bx-code-block'></i>
+                    </div>
+                    <div class="experience-details">
+                        <h3>Full Stack Developer</h3>
+                        <h4>Go Life Technology</h4>
+                        <p class="experience-date">December 2023 - Present</p>
+                        <p class="experience-description">
+                            Working as a Full Stack Developer, responsible for developing and maintaining web applications using modern technologies.
+                            Collaborating with cross-functional teams to deliver high-quality software solutions that meet client requirements.
+                            Implementing responsive designs and ensuring cross-browser compatibility.
+                            Developing RESTful APIs and integrating with third-party services.
+                            Performing code reviews and mentoring junior developers.
+                        </p>
+                        <div class="experience-skills">
+                            <span>React</span>
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                            <span>PHP</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- You can add more experience boxes here in the future -->
+        </div>
+    </section>
+
     <section class="timeline-section" id="education">
         <h2 class="heading">Education</h2>
         <div class="timeline-items">
