@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
   --primary-color: #e415ff;
@@ -758,6 +758,58 @@ body {
   transform: translateX(0.5rem);
 }
 
+/* Enhanced View My Work button */
+.view-work-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #000000, var(--primary-color));
+  border: none;
+  box-shadow: 0 0.5rem 1.5rem rgba(228, 21, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.view-work-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+  opacity: 0;
+  transition: opacity 0.  var(--primary-dark), var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.view-work-btn:hover {
+  transform: translateY(-0.5rem) scale(1.03);
+  box-shadow: 0 1rem 2.5rem rgba(255, 255, 255, 0.4);
+}
+
+.view-work-btn:hover::after {
+  opacity: 1;
+}
+
+.view-work-btn .btn-text {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.view-work-btn .btn-icon {
+  position: relative;
+  z-index: 2;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.view-work-btn:hover .btn-icon {
+  transform: translateX(0.8rem);
+}
+
 /* Services Section */
 .services-grid {
   display: grid;
@@ -1371,44 +1423,43 @@ body {
   transform: translateY(-0.5rem);
 }
 
-.contact-form-wrapper {
+/* Contact Info Card (Replacement for form) */
+.contact-info-card {
   background: var(--bg-color);
   border-radius: var(--border-radius);
   padding: 4rem;
-}
-
-.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
-.form-group {
-  position: relative;
+.contact-info-header {
+  margin-bottom: 2rem;
 }
 
-.form-control {
-  width: 100%;
-  padding: 1.5rem 2rem;
-  background: var(--bg-light);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-sm);
-  font-size: 1.6rem;
-  color: var(--text-color);
-  transition: var(--transition);
+.contact-info-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
 }
 
-.form-control:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem var(--primary-light);
-}
-
-.form-control::placeholder {
+.contact-info-subtitle {
+  font-size: 1.8rem;
   color: var(--text-light);
+  line-height: 1.6;
 }
 
-textarea.form-control {
-  resize: none;
+.contact-message {
+  font-size: 1.6rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.contact-cta {
+  display: flex;
+  justify-content: center;
 }
 
 /* Footer */
@@ -1605,7 +1656,7 @@ textarea.form-control {
     text-align: center;
   }
 
-  .contact-form-wrapper {
+  .contact-info-card {
     padding: 3rem;
   }
 
@@ -1639,6 +1690,51 @@ textarea.form-control {
   .contact-social-links {
     flex-wrap: wrap;
   }
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--primary-color);
+  opacity: 0.3;
+  animation: float 15s infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(0) translateX(20px);
+  }
+  75% {
+    transform: translateY(20px) translateX(10px);
+  }
+}
+
+/* Form success message */
+.form-success {
+  background-color: rgba(0, 200, 0, 0.1);
+  color: #00c800;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
+.form-success i {
+  font-size: 2.4rem;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 </style>
@@ -1720,7 +1816,7 @@ textarea.form-control {
                             I deliver innovative solutions that combine high performance with exceptional user experience.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#projects" class="btn btn-primary">
+                            <a href="#projects" class="btn btn-primary view-work-btn">
                                 <span class="btn-text">View My Work</span>
                                 <span class="btn-icon"><i class='bx bx-right-arrow-alt'></i></span>
                             </a>
@@ -1845,8 +1941,6 @@ textarea.form-control {
                             
                         </div>
                     </div>
-
-                   
                 </div>
             </div>
         </section>
@@ -1955,6 +2049,7 @@ textarea.form-control {
                         <div class="project-content">
                             <h3 class="project-title">Akho Dunya Website</h3>
                             <p class="project-description">
+                                Corporate website with modern design and responsive layout.
                             </p>
                             <div class="project-tech">
                                 <span class="tech-tag">laravel</span>
@@ -1978,6 +2073,7 @@ textarea.form-control {
                         <div class="project-content">
                             <h3 class="project-title">Romatek</h3>
                             <p class="project-description">
+                                Business website with custom features and modern design elements.
                             </p>
                             <div class="project-tech">
                                 <span class="tech-tag">HTML5</span>
@@ -1986,8 +2082,6 @@ textarea.form-control {
                                 <span class="tech-tag">php</span>
                                 <span class="tech-tag">laravel</span>
                                 <span class="tech-tag">Mysql</span>
-
-
                             </div>
                         </div>
                     </div>
@@ -2012,9 +2106,6 @@ textarea.form-control {
                                 <span class="tech-tag">html</span>
                                 <span class="tech-tag">CSS</span>
                                 <span class="tech-tag">JavaScript</span>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -2248,19 +2339,21 @@ textarea.form-control {
                                 <span class="timeline-period">December 2024 - Present</span>
                             </div>
                             <div class="timeline-body">
-                                <ul class="timeline-list">
-                                    <li>Developed and maintained multiple web applications using Laravel, React, and MySQL</li>
-                                    <li>Implemented responsive designs ensuring cross-browser compatibility and mobile-first approach</li>
-                                    <li>Created RESTful APIs and integrated with third-party services</li>
-                                    <li>Optimized database queries resulting in 40% faster page load times</li>
-                                    <li>Collaborated with UI/UX designers to implement modern and intuitive user interfaces</li>
-                                </ul>
+                              <ul>
+                                <li>Developed and maintained <strong>web applications</strong> using <strong>Full Stack</strong> technologies such as <strong>Laravel</strong>, <strong>  using <strong>Full Stack</strong> technologies such as <strong>Laravel</strong>, <strong>PHP</strong>, and <strong>MySQL</strong>.</li>
+                                <li><strong>Applied Quality Assurance (QA)</strong> practices to ensure optimal application performance and early detection of issues.</li>
+                                <li>Optimized <strong>database queries</strong> for faster and more efficient performance.</li>
+                                <li>Collaborated with <strong>UI/UX</strong> teams to enhance user experience and ensure ease of use.</li>
+                                <li><strong>Tested functionalities</strong> and ensured applications meet required standards and perform well across all devices and browsers.</li>
+                            </ul>
+                            
                                 <div class="timeline-tags">
-                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">PHP</span>
                                     <span class="tech-tag">Laravel</span>
                                     <span class="tech-tag">MySQL</span>
                                     <span class="tech-tag">JavaScript</span>
                                     <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">Html</span>
                                 </div>
                             </div>
                         </div>
@@ -2294,20 +2387,6 @@ textarea.form-control {
                             <p class="education-period">May 2024 - December 2024</p>
                             <p class="education-description">
                                 Intensive full-stack web development bootcamp covering modern web technologies including HTML, CSS, JavaScript, React, PHP, Laravel, and MySQL.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="education-card" data-scroll data-scroll-speed="0.5">
-                        <div class="education-icon">
-                            <i class='bx bx-certification'></i>
-                        </div>
-                        <div class="education-content">
-                            <h3 class="education-title">Laravel Certification</h3>
-                            <h4 class="education-institution">Udemy</h4>
-                            <p class="education-period">2023</p>
-                            <p class="education-description">
-                                Specialized certification in developing web applications using the Laravel framework, covering advanced concepts and best practices.
                             </p>
                         </div>
                     </div>
@@ -2361,7 +2440,7 @@ textarea.form-control {
                             </div>
                             <div class="contact-card-content">
                                 <h3 class="contact-card-title">Email</h3>
-                                <p class="contact-card-text">ASALHAWARI2000@gmailcom</p>
+                                <p class="contact-card-text">ASALHAWARI2000@gmail.com</p>
                             </div>
                         </div>
 
@@ -2384,31 +2463,28 @@ textarea.form-control {
                                 <a href="https://github.com/" class="social-link">
                                     <i class='bx bxl-github'></i>
                                 </a>
-                                
-                               
                             </div>
                         </div>
                     </div>
 
-                    <div class="contact-form-wrapper" data-scroll data-scroll-speed="0.5">
-                        <form class="contact-form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Full Name" required>
+                    <div class="contact-info-card" data-scroll data-scroll-speed="0.5">
+                        <div class="contact-info-header">
+                            <h3 class="contact-info-title">Get In Touch</h3>
+                            <p class="contact-info-subtitle">
+                                I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                            </p>
+                        </div>
+                        <div class="contact-info-content">
+                            <p class="contact-message">
+                                Feel free to reach out to me through any of the contact methods listed here. I typically respond within 24 hours.
+                            </p>
+                            <div class="contact-cta">
+                                <a href="mailto:ASALHAWARI2000@gmail.com" class="btn btn-primary">
+                                    <span class="btn-text">Send Email</span>
+                                    <span class="btn-icon"><i class='bx bx-envelope'></i></span>
+                                </a>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email Address" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                <span class="btn-text">Send Message</span>
-                                <span class="btn-icon"><i class='bx bx-send'></i></span>
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2478,331 +2554,300 @@ textarea.form-control {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script>
-        // Preloader
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    setTimeout(() => {
-        preloader.classList.add('hide');
-    }, 1000);
-});
+      // Preloader
+window.addEventListener("load", () => {
+  const preloader = document.querySelector(".preloader")
+  setTimeout(() => {
+    preloader.classList.add("hide")
+  }, 1000)
+})
 
 // Custom Cursor
-document.addEventListener('DOMContentLoaded', () => {
-    const cursor = document.querySelector('.cursor');
-    const cursorFollower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        setTimeout(() => {
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        }, 100);
-    });
-    
-    document.addEventListener('mousedown', () => {
-        cursor.style.width = '0.8rem';
-        cursor.style.height = '0.8rem';
-        cursorFollower.style.width = '4rem';
-        cursorFollower.style.height = '4rem';
-    });
-    
-    document.addEventListener('mouseup', () => {
-        cursor.style.width = '1rem';
-        cursor.style.height = '1rem';
-        cursorFollower.style.width = '3rem';
-        cursorFollower.style.height = '3rem';
-    });
-    
-    // Hover effect on links and buttons
-    const links = document.querySelectorAll('a, button, .btn, .service-card, .project-card, .education-card, .contact-card');
-    
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            cursor.style.width = '3rem';
-            cursor.style.height = '3rem';
-            cursor.style.backgroundColor = 'transparent';
-            cursor.style.border = '2px solid var(--primary-color)';
-            cursorFollower.style.opacity = '0';
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            cursor.style.width = '1rem';
-            cursor.style.height = '1rem';
-            cursor.style.backgroundColor = 'var(--primary-color)';
-            cursor.style.border = 'none';
-            cursorFollower.style.opacity = '0.5';
-        });
-    });
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const cursor = document.querySelector(".cursor")
+  const cursorFollower = document.querySelector(".cursor-follower")
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px"
+    cursor.style.top = e.clientY + "px"
+
+    setTimeout(() => {
+      cursorFollower.style.left = e.clientX + "px"
+      cursorFollower.style.top = e.clientY + "px"
+    }, 100)
+  })
+
+  document.addEventListener("mousedown", () => {
+    cursor.style.width = "0.8rem"
+    cursor.style.height = "0.8rem"
+    cursorFollower.style.width = "4rem"
+    cursorFollower.style.height = "4rem"
+  })
+
+  document.addEventListener("mouseup", () => {
+    cursor.style.width = "1rem"
+    cursor.style.height = "1rem"
+    cursorFollower.style.width = "3rem"
+    cursorFollower.style.height = "3rem"
+  })
+
+  // Hover effect on links and buttons
+  const links = document.querySelectorAll(
+    "a, button, .btn, .service-card, .project-card, .education-card, .contact-card",
+  )
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      cursor.style.width = "3rem"
+      cursor.style.height = "3rem"
+      cursor.style.backgroundColor = "transparent"
+      cursor.style.border = "2px solid var(--primary-color)"
+      cursorFollower.style.opacity = "0"
+    })
+
+    link.addEventListener("mouseleave", () => {
+      cursor.style.width = "1rem"
+      cursor.style.height = "1rem"
+      cursor.style.backgroundColor = "var(--primary-color)"
+      cursor.style.border = "none"
+      cursorFollower.style.opacity = "0.5"
+    })
+  })
+})
 
 // Menu Button Toggle
-const menuBtn = document.querySelector('.menu-btn');
-const navbar = document.querySelector('.navbar');
-const navLinks = document.querySelectorAll('.nav-link');
+const menuBtn = document.querySelector(".menu-btn")
+const navbar = document.querySelector(".navbar")
+const navLinks = document.querySelectorAll(".nav-link")
 
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    navbar.classList.toggle('open');
-    document.body.classList.toggle('no-scroll');
-});
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("open")
+  navbar.classList.toggle("open")
+  document.body.classList.toggle("no-scroll")
+})
 
 // Close menu when clicking on nav links
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuBtn.classList.remove('open');
-        navbar.classList.remove('open');
-        document.body.classList.remove('no-scroll');
-    });
-});
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    menuBtn.classList.remove("open")
+    navbar.classList.remove("open")
+    document.body.classList.remove("no-scroll")
+  })
+})
 
 // Locomotive Scroll
-let scroll; // Declare scroll variable
-if (typeof LocomotiveScroll !== 'undefined') {
-    scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        smartphone: { smooth: true },
-        tablet: { smooth: true }
-    });
+let scroll // Declare scroll variable
+
+if (typeof LocomotiveScroll !== "undefined") {
+  scroll = new LocomotiveScroll({
+    el: document.querySelector("[data-scroll-container]"),
+    smooth: true,
+    smartphone: { smooth: true },
+    tablet: { smooth: true },
+  })
 } else {
-    console.warn('Locomotive Scroll is not defined. Make sure it is properly imported.');
+  console.warn("Locomotive Scroll is not defined. Make sure it is properly imported.")
 }
 
 // Header scroll effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    const scrollTop = document.querySelector('.scroll-top');
-    
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        scrollTop.classList.add('active');
-    } else {
-        header.classList.remove('scrolled');
-        scrollTop.classList.remove('active');
-    }
-});
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header")
+  const scrollTop = document.querySelector(".scroll-top")
+
+  if (window.scrollY > 100) {
+    header.classList.add("scrolled")
+    scrollTop.classList.add("active")
+  } else {
+    header.classList.remove("scrolled")
+    scrollTop.classList.remove("active")
+  }
+})
 
 // Active nav link on scroll
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll("section")
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
+window.addEventListener("scroll", () => {
+  let current = ""
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop
+    const sectionHeight = section.clientHeight
+
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute("id")
+    }
+  })
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active")
+    if (link.getAttribute("href").substring(1) === current) {
+      link.classList.add("active")
+    }
+  })
+})
 
 // Projects Filter
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+const filterBtns = document.querySelectorAll(".filter-btn")
+const projectCards = document.querySelectorAll(".project-card")
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        projectCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 200);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 500);
-            }
-        });
-    });
-});
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Remove active class from all buttons
+    filterBtns.forEach((btn) => btn.classList.remove("active"))
+    // Add active class to clicked button
+    btn.classList.add("active")
+
+    const filterValue = btn.getAttribute("data-filter")
+
+    projectCards.forEach((card) => {
+      if (filterValue === "all" || card.getAttribute("data-category") === filterValue) {
+        card.style.display = "block"
+        setTimeout(() => {
+          card.style.opacity = "1"
+          card.style.transform = "translateY(0)"
+        }, 200)
+      } else {
+        card.style.opacity = "0"
+        card.style.transform = "translateY(20px)"
+        setTimeout(() => {
+          card.style.display = "none"
+        }, 500)
+      }
+    })
+  })
+})
 
 // Skills Tabs
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabPanes = document.querySelectorAll('.tab-pane');
+const tabBtns = document.querySelectorAll(".tab-btn")
+const tabPanes = document.querySelectorAll(".tab-pane")
 
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons and panes
-        tabBtns.forEach(btn => btn.classList.remove('active'));
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-        
-        // Add active class to clicked button and corresponding pane
-        btn.classList.add('active');
-        document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
-        
-        // Animate skill bars
-        const skillBars = document.querySelectorAll('.active .skill-progress-bar');
-        skillBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        });
-    });
-});
+tabBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Remove active class from all buttons and panes
+    tabBtns.forEach((btn) => btn.classList.remove("active"))
+    tabPanes.forEach((pane) => pane.classList.remove("active"))
+
+    // Add active class to clicked button and corresponding pane
+    btn.classList.add("active")
+    document.getElementById(btn.getAttribute("data-tab")).classList.add("active")
+
+    // Animate skill bars
+    const skillBars = document.querySelectorAll(".active .skill-progress-bar")
+    skillBars.forEach((bar) => {
+      const width = bar.style.width
+      bar.style.width = "0"
+      setTimeout(() => {
+        bar.style.width = width
+      }, 100)
+    })
+  })
+})
 
 // Animate skill bars on page load
-window.addEventListener('load', () => {
-    const skillBars = document.querySelectorAll('.active .skill-progress-bar');
-    skillBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 1000);
-    });
-});
+window.addEventListener("load", () => {
+  const skillBars = document.querySelectorAll(".active .skill-progress-bar")
+  skillBars.forEach((bar) => {
+    const width = bar.style.width
+    bar.style.width = "0"
+    setTimeout(() => {
+      bar.style.width = width
+    }, 1000)
+  })
+})
 
 // Particles Animation for Hero Section
-const heroParticles = document.querySelector('.hero-particles');
+const heroParticles = document.querySelector(".hero-particles")
 
 function createParticles() {
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('span');
-        particle.classList.add('particle');
-        
-        const size = Math.random() * 8 + 2;
-        
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-        
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.backgroundColor = 'var(--primary-color)';
-        particle.style.opacity = Math.random() * 0.5;
-        particle.style.borderRadius = '50%';
-        particle.style.position = 'absolute';
-        particle.style.animation = `float ${duration}s linear infinite`;
-        
-        heroParticles.appendChild(particle);
-    }
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement("span")
+    particle.classList.add("particle")
+
+    const size = Math.random() * 8 + 2
+
+    const posX = Math.random() * 100
+    const posY = Math.random() * 100
+    const duration = Math.random() * 20 + 10
+    const delay = Math.random() * 5
+
+    particle.style.width = `${size}px`
+    particle.style.height = `${size}px`
+    particle.style.left = `${posX}%`
+    particle.style.top = `${posY}%`
+    particle.style.animationDuration = `${duration}s`
+    particle.style.animationDelay = `${delay}s`
+    particle.style.backgroundColor = "var(--primary-color)"
+    particle.style.opacity = Math.random() * 0.5
+    particle.style.borderRadius = "50%"
+    particle.style.position = "absolute"
+    particle.style.animation = `float ${duration}s linear infinite`
+
+    heroParticles.appendChild(particle)
+  }
 }
 
-createParticles();
+createParticles()
 
 // GSAP Animations
-let gsap, ScrollTrigger; // Declare gsap and ScrollTrigger variables
+let gsap, ScrollTrigger // Declare gsap and ScrollTrigger variables
 
-if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
+if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger)
 
-    // Hero animations
-    gsap.from('.hero-title-line', {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power4.out'
-    });
+  // Hero animations
+  gsap.from(".hero-title-line", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power4.out",
+  })
 
-    gsap.from('.hero-subtitle, .hero-description, .hero-buttons', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        delay: 0.5,
-        ease: 'power3.out'
-    });
+  gsap.from(".hero-subtitle, .hero-description, .hero-buttons", {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    delay: 0.5,
+    ease: "power3.out",
+  })
 
-    gsap.from('.image-wrapper', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1,
-        delay: 0.8,
-        ease: 'back.out(1.7)'
-    });
+  gsap.from(".image-wrapper", {
+    scale: 0.8,
+    opacity: 0,
+    duration: 1,
+    delay: 0.8,
+    ease: "back.out(1.7)",
+  })
 } else {
-    console.warn('GSAP or ScrollTrigger is not defined. Make sure they are properly imported.');
+  console.warn("GSAP or ScrollTrigger is not defined. Make sure they are properly imported.")
 }
 
 // Update current year in footer
-document.getElementById('current-year').textContent = new Date().getFullYear();
+document.getElementById("current-year").textContent = new Date().getFullYear()
 
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            scroll.scrollTo(targetElement);
-        }
-    });
-});
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
 
-// Form submission
-const contactForm = document.querySelector('.contact-form');
+    const targetId = this.getAttribute("href")
+    const targetElement = document.querySelector(targetId)
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Here you would normally send the form data to a server
-        // For now, we'll just show a success message
-        
-        const formElements = this.elements;
-        let isValid = true;
-        
-        // Simple validation
-        for (let i = 0; i < formElements.length; i++) {
-            if (formElements[i].type !== 'submit' && formElements[i].value.trim() === '') {
-                isValid = false;
-                formElements[i].classList.add('error');
-            } else {
-                formElements[i].classList.remove('error');
-            }
-        }
-        
-        if (isValid) {
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.classList.add('form-success');
-            successMessage.innerHTML = '<i class="bx bx-check-circle"></i> Your message has been sent successfully!';
-            
-            this.appendChild(successMessage);
-            this.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successMessage.remove();
-            }, 5000);
-        }
-    });
-}
+    if (targetElement) {
+      if (scroll) {
+        scroll.scrollTo(targetElement)
+      } else {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        })
+      }
+    }
+  })
+})
 
 // Add this style to the head
-const style = document.createElement('style');
+const style = document.createElement("style")
 style.textContent = `
     @keyframes float {
         0%, 100% {
@@ -2819,33 +2864,13 @@ style.textContent = `
         }
     }
     
-    .form-success {
-        background-color: rgba(0, 200, 0, 0.1);
-        color: #00c800;
-        padding: 1.5rem;
-        border-radius: var(--border-radius-sm);
-        margin-top: 2rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-size: 1.6rem;
-    }
-    
-    .form-success i {
-        font-size: 2.4rem;
-    }
-    
-    .error {
-        border-color: #ff3333 !important;
-        box-shadow: 0 0 0 0.2rem rgba(255, 51, 51, 0.2) !important;
-    }
-    
     .no-scroll {
         overflow: hidden;
     }
-`;
+`
 
-document.head.appendChild(style);
+document.head.appendChild(style)
+
     </script>
 </body>
 
